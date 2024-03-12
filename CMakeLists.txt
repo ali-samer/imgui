@@ -3,7 +3,7 @@ project (ImGui)
 
 find_package(OpenGL REQUIRED)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (WIN32)
@@ -39,6 +39,7 @@ add_library(ImGui SHARED
     imgui_draw.cpp
     imgui_user.cpp
     imgui_widgets.cpp
+    imgui_tables.cpp
     backends/imgui_impl_glfw.cpp
     backends/imgui_impl_opengl3.cpp
     examples/libs/gl3w/GL/gl3w.c
@@ -54,6 +55,7 @@ target_include_directories(ImGui PUBLIC
 target_include_directories(ImGui PRIVATE
     ${PROJECT_SOURCE_DIR}
     examples/libs/gl3w
+    ${CMAKE_CURRENT_SOURCE_DIR}
     )
 
 target_link_libraries(ImGui PUBLIC

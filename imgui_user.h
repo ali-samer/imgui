@@ -8,7 +8,8 @@
 #include <vector>
 #include <string>
 #include <array>
-
+#include <float.h>
+#include "imgui.h"
 namespace ImGui {
     namespace Parameters {
         struct PlotLinesMulti {
