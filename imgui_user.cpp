@@ -3,8 +3,11 @@
  *  \author Georgi Gerganov
  */
 
-#include "imgui.h"
 #define IMGUI_DEFINE_MATH_OPERATORS
+#include <vector>
+#include <string>
+#include "imgui_user.h"
+#include "imgui.h"
 #include "imgui_internal.h"
 
 namespace ImGui {
@@ -29,7 +32,8 @@ namespace ImGui {
         const ImRect total_bb(frame_bb.Min, frame_bb.Max + ImVec2(label_size.x > 0.0f ? style.ItemInnerSpacing.x + label_size.x : 0.0f, 0));
         ItemSize(total_bb, style.FramePadding.y);
         if (!ItemAdd(total_bb, 0, &frame_bb)) return;
-        const bool hovered = ItemHoverable(inner_bb, 0);
+	    ImGuiItemFlags temp_items_flags = 0;
+        const bool hovered = ItemHoverable(inner_bb, 0, temp_items_flags);
 
         auto x_min = params.x_min;
         auto x_max = params.x_max;
